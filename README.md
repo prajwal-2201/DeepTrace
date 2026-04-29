@@ -80,7 +80,7 @@ project/
 ### 1. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/forensics-system.git
+git clone https://github.com/prajwal-2201/DeepTrace
 cd forensics-system
 
 # Install dependencies
