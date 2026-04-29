@@ -1,0 +1,82 @@
+Source: libewf
+Section: libs
+Priority: optional
+Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Uploaders: Pierre Chifflier <pollux@debian.org>
+Build-Depends: debhelper-compat (= 13),
+  autopoint,
+  libfuse3-dev,
+  zlib1g-dev,
+  libbz2-dev,
+  uuid-dev,
+  libssl-dev,
+  flex,
+  bison,
+  pkgconf,
+  python3-dev,
+  python3-setuptools,
+  dh-python,
+Standards-Version: 4.6.1
+Homepage: https://github.com/libyal/libewf-legacy
+Vcs-Browser: https://salsa.debian.org/pkg-security-team/libewf
+Vcs-Git: https://salsa.debian.org/pkg-security-team/libewf.git
+Testsuite: autopkgtest-pkg-python
+Rules-Requires-Root: no
+
+Package: libewf2
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
+Description: library with support for Expert Witness Compression Format
+ Libewf is a library with support for reading and writing the Expert Witness
+ Compression Format (EWF).
+ This library allows you to read media information of EWF files in the SMART
+ (EWF-S01) format and the EnCase (EWF-E01) format. It supports files created
+ by EnCase 1 to 6, linen and FTK Imager. The libewf is useful for forensics
+ investigations.
+
+Package: libewf-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends}, libewf2 (= ${binary:Version}), zlib1g-dev,
+  libbfio-dev
+Description: support for Expert Witness Compression format (development)
+ Libewf is a library with support for reading and writing the Expert Witness
+ Compression Format (EWF).
+ This library allows you to read media information of EWF files in the SMART
+ (EWF-S01) format and the EnCase (EWF-E01) format. It supports files created
+ by EnCase 1 to 6, linen and FTK Imager. The libewf is useful for forensics
+ investigations.
+ .
+ This package contains the development files.
+
+Package: ewf-tools
+Section: admin
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libewf2 (= ${binary:Version})
+Conflicts: libewf1 (<< 20090606+debian-1)
+Replaces: libewf1 (<< 20090606+debian-1)
+Description: collection of tools for reading and writing EWF files
+ Libewf is a library with support for reading and writing the Expert Witness
+ Compression Format (EWF).
+ This library allows you to read media information of EWF files in the SMART
+ (EWF-S01) format and the EnCase (EWF-E01) format. It supports files created
+ by EnCase 1 to 6, linen and FTK Imager. The libewf is useful for forensics
+ investigations.
+ .
+ This package contains tools to acquire, verify and export EWF files.
+
+Package: python3-libewf
+Section: python
+Architecture: any
+Depends: libewf2 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}
+Description: support for Expert Witness Compression format -- Python 3 bindings
+ Libewf is a library with support for reading and writing the Expert Witness
+ Compression Format (EWF).
+ This library allows you to read media information of EWF files in the SMART
+ (EWF-S01) format and the EnCase (EWF-E01) format. It supports files created
+ by EnCase 1 to 6, linen and FTK Imager. The libewf is useful for forensics
+ investigations.
+ .
+ This package contains Python 3 bindings for libewf.

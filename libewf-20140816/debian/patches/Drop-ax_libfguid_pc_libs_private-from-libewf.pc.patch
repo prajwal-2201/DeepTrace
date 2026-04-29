@@ -1,0 +1,22 @@
+From: =?utf-8?q?Rapha=C3=ABl_Hertzog?= <raphael@offensive-security.com>
+Date: Tue, 3 Dec 2019 16:31:23 +0100
+Subject: Drop @ax_libfguid_pc_libs_private@ from libewf.pc
+
+That marker is not getting replaced by anything as it should. lintian
+complains about it in the resulting file.
+---
+ libewf.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libewf.pc.in b/libewf.pc.in
+index 313fa2f..aad800d 100644
+--- a/libewf.pc.in
++++ b/libewf.pc.in
+@@ -7,6 +7,6 @@ Name: libewf
+ Description: Library to access the Expert Witness Compression Format (EWF)
+ Version: @VERSION@
+ Libs: -L${libdir} -lewf
+-Libs.private: @ax_libbfio_pc_libs_private@ @ax_libcdata_pc_libs_private@ @ax_libcerror_pc_libs_private@ @ax_libcfile_pc_libs_private@ @ax_libclocale_pc_libs_private@ @ax_libcnotify_pc_libs_private@ @ax_libcpath_pc_libs_private@ @ax_libcrypto_pc_libs_private@ @ax_libcsplit_pc_libs_private@ @ax_libcthreads_pc_libs_private@ @ax_libfcache_pc_libs_private@ @ax_libfdata_pc_libs_private@ @ax_libfguid_pc_libs_private@ @ax_libfvalue_pc_libs_private@ @ax_libhmac_pc_libs_private@ @ax_libuna_pc_libs_private@ @ax_pthread_pc_libs_private@ @ax_zlib_pc_libs_private@
++Libs.private: @ax_libbfio_pc_libs_private@ @ax_libcdata_pc_libs_private@ @ax_libcerror_pc_libs_private@ @ax_libcfile_pc_libs_private@ @ax_libclocale_pc_libs_private@ @ax_libcnotify_pc_libs_private@ @ax_libcpath_pc_libs_private@ @ax_libcrypto_pc_libs_private@ @ax_libcsplit_pc_libs_private@ @ax_libcthreads_pc_libs_private@ @ax_libfcache_pc_libs_private@ @ax_libfdata_pc_libs_private@ @ax_libfvalue_pc_libs_private@ @ax_libhmac_pc_libs_private@ @ax_libuna_pc_libs_private@ @ax_pthread_pc_libs_private@ @ax_zlib_pc_libs_private@
+ Cflags: -I${includedir}
+ 

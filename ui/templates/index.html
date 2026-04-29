@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepTrace: Advanced Forensic Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        danger: '#ef4444',
+                        surface: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 min-h-screen font-sans">
+    
+    <!-- Navbar -->
+    <nav class="glass-panel sticky top-0 z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="ml-3 text-xl font-bold text-white tracking-wider">DeepTrace<span class="text-primary">.AI</span> [ENTERPRISE]</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-extrabold text-white">Digital Forensics Investigation Workspace</h1>
+            <p class="mt-2 text-sm text-gray-400">YARA Malware Scanning • PII Detection • Memory/Disk Artifacts • Stego Detection</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Controls & Input -->
+            <div class="lg:col-span-1 space-y-6">
+                
+                <!-- Target Selection -->
+                <div class="glass-panel rounded-xl p-6 shadow-lg">
+                    <h2 class="text-lg font-semibold text-white mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        Target Acquisition
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Disk Image Path (RAW/E01/Folder)</label>
+                            <input type="text" id="imagePath" placeholder="C:\images\suspect.dd" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Controls -->
+                <div class="glass-panel rounded-xl p-6 shadow-lg">
+                    <h2 class="text-lg font-semibold text-white mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        Execution Pipeline
+                    </h2>
+                    
+                    <div class="space-y-3 mb-6">
+                        <label class="flex items-center space-x-3 text-sm">
+                            <input type="checkbox" checked class="form-checkbox h-4 w-4 text-primary rounded bg-gray-800 border-gray-600 focus:ring-primary">
+                            <span class="text-gray-300 font-bold text-red-400">YARA Threat Intelligence</span>
+                        </label>
+                        <label class="flex items-center space-x-3 text-sm">
+                            <input type="checkbox" checked class="form-checkbox h-4 w-4 text-primary rounded bg-gray-800 border-gray-600 focus:ring-primary">
+                            <span class="text-gray-300 font-bold text-yellow-400">PII Data Leak Detection</span>
+                        </label>
+                        <label class="flex items-center space-x-3 text-sm">
+                            <input type="checkbox" checked class="form-checkbox h-4 w-4 text-primary rounded bg-gray-800 border-gray-600 focus:ring-primary">
+                            <span class="text-gray-300">Recover Deleted Files & Timeline</span>
+                        </label>
+                        <label class="flex items-center space-x-3 text-sm">
+                            <input type="checkbox" checked class="form-checkbox h-4 w-4 text-primary rounded bg-gray-800 border-gray-600 focus:ring-primary">
+                            <span class="text-gray-300">OS / Registry Parsing</span>
+                        </label>
+                    </div>
+
+                    <button id="btnAnalyze" class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-md transition duration-150 ease-in-out glow">
+                        INITIALIZE SCAN
+                    </button>
+                </div>
+                
+                <!-- Status Log -->
+                <div class="glass-panel rounded-xl p-4 shadow-lg h-64 flex flex-col">
+                    <h3 class="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wider flex justify-between">
+                        <span>System Terminal</span>
+                        <span class="flex items-center h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                    </h3>
+                    <div id="terminal" class="flex-1 bg-black rounded p-3 overflow-y-auto font-mono text-xs text-green-400 space-y-1">
+                        <div>> SocketIO Connected. Waiting for input...</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Results Dashboard -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="glass-panel rounded-xl p-5 border-l-4 border-blue-500">
+                        <div class="text-sm text-gray-400">Total Files Parsed</div>
+                        <div class="text-3xl font-bold text-white mt-1" id="statParsed">0</div>
+                    </div>
+                    <div class="glass-panel rounded-xl p-5 border-l-4 border-yellow-500">
+                        <div class="text-sm text-gray-400">Recovered Artifacts</div>
+                        <div class="text-3xl font-bold text-white mt-1" id="statRecovered">0</div>
+                    </div>
+                    <div class="glass-panel rounded-xl p-5 border-l-4 border-red-500 bg-red-900/20">
+                        <div class="text-sm text-red-400 font-bold">Threats & PII Leaks</div>
+                        <div class="text-3xl font-bold text-white mt-1" id="statAnomalies">0</div>
+                    </div>
+                </div>
+
+                <!-- Live Results Tabs -->
+                <div class="glass-panel rounded-xl shadow-lg overflow-hidden flex flex-col h-[500px]">
+                    <div class="border-b border-gray-700 bg-gray-800/50">
+                        <nav class="flex -mb-px">
+                            <button class="px-6 py-3 border-b-2 border-primary text-primary font-medium text-sm">Visual Analytics (Live)</button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Tab Content area (Chart) -->
+                    <div class="flex-1 p-6 overflow-y-auto bg-gray-900/30 flex justify-center items-center">
+                        <div class="w-full h-full relative" id="chartContainer">
+                            <!-- Placeholder text before chart loads -->
+                            <div id="chartPlaceholder" class="absolute inset-0 flex flex-col items-center justify-center">
+                                <svg class="h-12 w-12 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <h3 class="mt-2 text-sm font-medium text-gray-400">Awaiting Data Streams</h3>
+                            </div>
+                            <canvas id="entropyChart" class="hidden"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 border-t border-gray-700 bg-gray-800/50 flex justify-end">
+                        <button id="btnExportJson" disabled class="bg-gray-700 border border-gray-600 text-gray-500 py-2 px-4 rounded-md text-sm transition mr-2 cursor-not-allowed">
+                            Export JSON
+                        </button>
+                        <button id="btnGeneratePdf" disabled class="bg-gray-700 text-gray-500 py-2 px-4 rounded-md text-sm transition cursor-not-allowed">
+                            Generate PDF Report
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const btnAnalyze = document.getElementById('btnAnalyze');
+        let chartInstance = null;
+        
+        // Initialize Socket.io
+        const socket = io();
+
+        function logMsg(msg, isError=false) {
+            const div = document.createElement('div');
+            div.textContent = `> ${msg}`;
+            if(isError) div.classList.add('text-red-400', 'font-bold');
+            terminal.appendChild(div);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // Socket Event Listeners
+        socket.on('log_event', (data) => {
+            logMsg(data.msg, data.is_error);
+        });
+
+        socket.on('scan_complete', (data) => {
+            btnAnalyze.disabled = false;
+            btnAnalyze.innerHTML = 'INITIALIZE SCAN';
+            btnAnalyze.classList.add('bg-primary', 'hover:bg-blue-600', 'glow');
+            btnAnalyze.classList.remove('bg-gray-600', 'cursor-not-allowed');
+            
+            document.getElementById('statParsed').textContent = data.parsed || '0';
+            document.getElementById('statRecovered').textContent = data.recovered || '0';
+            document.getElementById('statAnomalies').textContent = data.anomalies || '0';
+            
+            // Enable export buttons
+            const btnJson = document.getElementById('btnExportJson');
+            btnJson.disabled = false;
+            btnJson.classList.remove('bg-gray-700', 'text-gray-500', 'cursor-not-allowed');
+            btnJson.classList.add('bg-surface', 'text-white', 'hover:bg-gray-700');
+
+            const btnPdf = document.getElementById('btnGeneratePdf');
+            btnPdf.disabled = false;
+            btnPdf.classList.remove('bg-gray-700', 'text-gray-500', 'cursor-not-allowed');
+            btnPdf.classList.add('bg-secondary', 'text-white', 'hover:bg-green-600');
+            
+            // Render Chart
+            if(data.chart_data && data.chart_data.entropy.length > 0) {
+                renderChart(data.chart_data.entropy);
+            }
+        });
+        
+        socket.on('scan_error', () => {
+            btnAnalyze.disabled = false;
+            btnAnalyze.innerHTML = 'INITIALIZE SCAN';
+            btnAnalyze.classList.add('bg-primary', 'hover:bg-blue-600', 'glow');
+            btnAnalyze.classList.remove('bg-gray-600', 'cursor-not-allowed');
+        });
+
+        function renderChart(entropyData) {
+            document.getElementById('chartPlaceholder').classList.add('hidden');
+            const canvas = document.getElementById('entropyChart');
+            canvas.classList.remove('hidden');
+            
+            // Get top 20 files by entropy for the chart
+            entropyData.sort((a,b) => b.val - a.val);
+            const topData = entropyData.slice(0, 20);
+            
+            const labels = topData.map(d => d.file);
+            const values = topData.map(d => d.val);
+            const colors = values.map(v => v > 7.85 ? 'rgba(239, 68, 68, 0.8)' : 'rgba(59, 130, 246, 0.8)');
+            
+            if(chartInstance) chartInstance.destroy();
+            
+            const ctx = canvas.getContext('2d');
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Shannon Entropy (High = Encryption/Stego)',
+                        data: values,
+                        backgroundColor: colors,
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 8.0,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#9ca3af', maxRotation: 45, minRotation: 45 }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#e5e7eb' } }
+                    }
+                }
+            });
+        }
+
+        btnAnalyze.addEventListener('click', async () => {
+            const path = document.getElementById('imagePath').value;
+            if(!path) {
+                logMsg('ERROR: No target path provided.', true);
+                return;
+            }
+            
+            terminal.innerHTML = '<div>> Connecting to scanning engine...</div>';
+            
+            btnAnalyze.disabled = true;
+            btnAnalyze.classList.remove('bg-primary', 'hover:bg-blue-600', 'glow');
+            btnAnalyze.classList.add('bg-gray-600', 'cursor-not-allowed');
+            btnAnalyze.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                EXECUTION IN PROGRESS
+            `;
+            
+            try {
+                const res = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        path: path,
+                        options: { recover: true, metadata: true }
+                    })
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    logMsg(`ERROR: ${data.message}`, true);
+                    socket.emit('scan_error');
+                }
+            } catch (err) {
+                logMsg(`ERROR: ${err.message}`, true);
+                socket.emit('scan_error');
+            }
+        });
+
+        document.getElementById('btnExportJson').addEventListener('click', () => {
+            window.location.href = '/api/download/json';
+        });
+
+        document.getElementById('btnGeneratePdf').addEventListener('click', () => {
+            window.location.href = '/api/download/pdf';
+        });
+    </script>
+</body>
+</html>

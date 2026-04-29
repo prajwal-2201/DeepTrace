@@ -1,0 +1,11 @@
+pytsk3
+# pyewf  # installed from source manually
+Pillow
+opencv-python
+numpy
+reportlab
+python-magic
+Flask
+Flask-SocketIO
+yara-python
+regipy

@@ -1,0 +1,217 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libewf
+Upstream-Contact: Joachim Metz <joachim.metz@gmail.com>
+Source: https://github.com/libyal/libewf-legacy
+
+Files: *
+Copyright: 2006-2022, Joachim Metz <joachim.metz@gmail.com>
+License: LGPL-3+
+
+Files: debian/*
+Copyright: 2015 Joao Eriberto Mota Filho <eriberto@debian.org>
+           2013-2014, Pierre Chifflier <pollux@debian.org>
+           2009-2010, Cristian Greco <cristian@regolo.cc>
+           2008-2009, Daniel Baumann <daniel@debian.org>
+           2009, 2011-2013, Christophe Monniez <christophe.monniez@fccu.be>
+           2015, 2019 Hilko Bengen <bengen@debian.org>
+           2018 Aurelien Jarno <aurel32@debian.org>
+           2018-2019 Raphaël Hertzog <hertzog@debian.org>
+           2020 Samuel Henrique <samueloph@debian.org>
+           2022 Sebastian Ramacher <sramacher@debian.org>
+           2022 Fukui Daichi <a.dog.will.talk@akane.waseda.jp>
+License: LGPL-3+
+
+Files: manuals/Makefile.in
+Copyright: 1994-2020 Free Software Foundation, Inc.
+License: FSF-unlimited
+
+Files: pyewf/*
+Copyright: 2008, David Collett <david.collett@gmail.com>
+           2008-2021, Joachim Metz <joachim.metz@gmail.com>
+License: LGPL-3+
+
+Files: pyewf/Makefile.in
+Copyright: 1994-2020 Free Software Foundation, Inc.
+License: FSF-unlimited
+
+Files: install-sh
+Copyright: 1994 X Consortium
+License: Expat-and-public-domain
+
+Files: config.rpath
+       m4/host-cpu-c-abi.m4
+       m4/iconv.m4
+       m4/lib-ld.m4
+       m4/lib-link.m4
+       m4/lib-prefix.m4
+       m4/libtool.m4
+       m4/ltoptions.m4
+       m4/ltsugar.m4
+       m4/ltversion.m4
+       m4/lt~obsolete.m4
+Copyright: 1996-2020 Free Software Foundation, Inc.
+License: FSFULLR
+
+Files: INSTALL
+Copyright:
+    1994-1996, 1999-2002, 2004-2016 Free Software Foundation, Inc.
+License: FSFAP
+
+Files: ltmain.sh
+Copyright: 1996-2015 Free Software Foundation, Inc.
+License: GPL-2+ with libtool exception
+
+Files: libodraw/libodraw_cue_parser.c
+       libodraw/libodraw_cue_parser.h
+       config.guess
+       config.sub
+Copyright:
+    1984, 1989-1990, 1992-2021 Free Software Foundation,
+License: GPL-3+ with special exception
+
+Files: po/Makefile.in.in
+Copyright:
+    1995-1997, 2000-2007, 2009-2010 by Ulrich Drepper <drepper@gnu.ai.mit.edu>
+License: GNUgettext
+
+Files: aclocal.m4
+Copyright: 1996-2020 Free Software Foundation, Inc.
+License: FSF-unlimited
+
+Files: compile depcomp missing test-driver ylwrap
+Copyright: 1996-2020 Free Software Foundation, Inc.
+License: GPL-2+ with autoconf exception
+
+Files: configure
+Copyright: 1992-1996, 1998-2012 Free Software Foundation, Inc.
+License: FSF-unlimited-2
+
+License: LGPL-3+
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+License: Expat-and-public-domain
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+ X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+ AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNEC-
+ TION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ .
+ Except as contained in this notice, the name of the X Consortium shall not
+ be used in advertising or otherwise to promote the sale, use or other deal-
+ ings in this Software without prior written authorization from the X Consor-
+ tium.
+ .
+ FSF changes to this file are in the public domain.
+
+License: FSFULLR
+ This file is free software; the Free Software Foundation
+ gives unlimited permission to copy and/or distribute it,
+ with or without modifications, as long as this notice is preserved.
+
+License: FSFAP
+ Copying and distribution of this file, with or without modification,
+ are permitted in any medium without royalty provided the copyright
+ notice and this notice are preserved.  This file is offered as-is,
+ without warranty of any kind.
+
+License: GPL-2+ with libtool exception
+ This is free software; see the source for copying conditions.  There is NO
+ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ .
+ GNU Libtool is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ As a special exception to the GNU General Public License,
+ if you distribute this file as part of a program or library that
+ is built using GNU Libtool, you may include this file under the
+ same distribution terms that you use for the rest of that program.
+ .
+ GNU Libtool is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: GNUgettext
+ This file can be copied and used freely without restrictions.  It can
+ be used in projects which are not available under the GNU General Public
+ License but which still want to provide support for the GNU gettext
+ functionality.
+ Please note that the actual code of GNU gettext is covered by the GNU
+ General Public License and is *not* in the public domain.
+
+License: FSF-unlimited
+ This file is free software; the Free Software Foundation
+ gives unlimited permission to copy and/or distribute it,
+ with or without modifications, as long as this notice is preserved.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+ even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ PARTICULAR PURPOSE.
+
+License: GPL-2+ with autoconf exception
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2, or (at your option)
+ any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+ .
+ As a special exception to the GNU General Public License, if you
+ distribute this file as part of a program that contains a
+ configuration script generated by Autoconf, you may include it under
+ the same distribution terms that you use for the rest of that program.
+
+License: FSF-unlimited-2
+ This configure script is free software; the Free Software Foundation
+ gives unlimited permission to copy, distribute and modify it.
+
+License: GPL-3+ with special exception
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+ .
+ As a special exception, you may create a larger work that contains
+ part or all of the Bison parser skeleton and distribute that work
+ under terms of your choice, so long as that work isn't itself a
+ parser generator using the skeleton or a modified version thereof
+ as a parser skeleton.  Alternatively, if you modify or redistribute
+ the parser skeleton itself, you may (at your option) remove this
+ special exception, which will cause the skeleton and the resulting
+ Bison output files to be licensed under the GNU General Public
+ License without this special exception.
+ .
+ This special exception was added by the Free Software Foundation in
+ version 2.2 of Bison.

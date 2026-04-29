@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Data & Reports (Temporary/User data)
+data/uploads/*
+data/reports/*
+data/recovered/*
+!data/uploads/.gitkeep
+!data/reports/.gitkeep
+!data/recovered/.gitkeep
+test_reports/
+tmp/
+
+# Scratch & Tests
+scratch/
+test_image.dd
+
+# OS
+.DS_Store
+.idea/
+.vscode/

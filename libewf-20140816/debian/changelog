@@ -1,0 +1,359 @@
+libewf (20140816-2) unstable; urgency=medium
+
+  * Team upload.
+  * Switch to fuse3, using upstream patch (Closes: #1084440)
+
+ -- Hilko Bengen <bengen@debian.org>  Tue, 18 Nov 2025 00:39:01 +0100
+
+libewf (20140816-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 20140816
+  * Update build-dependencies, copyright
+  * Update symbols file
+  * Add python3-setuptools dependency (Closes: #1080891)
+  * Ensure that package can be rebuilt from source after successful build
+    (Closes: #1046689)
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 30 Nov 2024 22:39:49 +0000
+
+libewf (20140814-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + libewf2: Add Multi-Arch: same.
+
+  [ Hilko Bengen ]
+  * New upstream version 20140814
+  * Fix debian/watch
+
+ -- Hilko Bengen <bengen@debian.org>  Sat, 29 Jul 2023 00:05:14 +0200
+
+libewf (20140813-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Samuel Henrique ]
+  * Configure git-buildpackage for Debian
+  * Add Salsa's CI configuration file
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit,
+    Repository, Repository-Browse.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Sebastian Ramacher ]
+  * Import Debian changes 20140807-2.1
+
+  [ Fukui Daichi ]
+  * New upstream version 20140813
+  * OpenSSL3.patch no longer needed
+  * Switch to debhelper compat level 13
+  * Update symbols file
+  * Add autopkgtest-pkg-python testsuite
+  * Update d/copyright
+  * Bump Standards-Version to 4.6.1
+  * Remove linker flag
+  * Bump d/watch to version 4
+  * Add Rules-Requires-Root field
+  * Add examples
+
+ -- Fukui Daichi <a.dog.will.talk@akane.waseda.jp>  Tue, 09 Aug 2022 14:09:22 +0000
+
+libewf (20140807-2.1) unstable; urgency=medium
+
+  [ Simon Chopin ]
+  * d/p/OpenSSL3.patch: cherry-picked from upstream to fix the build
+    against OpenSSL 3.0 (Closes: #1006393)
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Fri, 20 May 2022 22:27:52 +0200
+
+libewf (20140807-2) unstable; urgency=medium
+
+  * Team upload.
+  * Update team maintainer address to Debian Security Tools
+    <team+pkg-security@tracker.debian.org>
+  * Drop Christophe Monniez from Uploaders
+  * Drop Python 2 support (Closes: #936854)
+  * Force autoconf as build system
+  * Drop @ax_libfguid_pc_libs_private@ from libewf.pc
+  * Drop unused paragraph in copyright file
+  * Add Build-Depends-Package field to the symbols file
+  * Switch to debhelper compat level 12
+  * Bump Standards-Version to 4.4.1
+
+ -- Raphaël Hertzog <raphael@offensive-security.com>  Tue, 03 Dec 2019 16:38:28 +0100
+
+libewf (20140807-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 20140807
+  * Fix watch file
+  * Drop pkgconfig patch that is no longer needed
+
+ -- Hilko Bengen <bengen@debian.org>  Wed, 04 Sep 2019 07:59:23 +0200
+
+libewf (20140804-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 20140804
+  * Drop patches
+  * Update DEP5 copyright file
+  * Bump Debhelper compat level
+  * Update Vcs-* headers after migration to salsa.debian.org
+  * Bump Standards-Version
+  * Modernize package: Python2/3 bindings, no -dbg package, simplify
+    d/rules
+  * Update URLs in watch, control, copyright
+  * Update .symbols file
+  * Add patch fixing pkg-config file
+  * Fix formatting in d/copyright
+
+ -- Hilko Bengen <bengen@debian.org>  Fri, 18 Jan 2019 16:17:19 +0100
+
+libewf (20140608-6.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/control: Drop explicit Pre-Depends on multiarch-support (Closes:
+    #870540).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 20 Jan 2018 12:41:26 +0100
+
+libewf (20140608-6) unstable; urgency=medium
+
+  * Team upload.
+  * Added Python bindings package (Closes: #792800)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 20 Jul 2015 02:18:33 +0200
+
+libewf (20140608-5) unstable; urgency=medium
+
+  * Team upload.
+  * debian/patches/04-fix-FTBFS-GCC5.patch: added to fix a FTBFS with GCC-5.
+      (Closes: #777945)
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Thu, 02 Jul 2015 22:50:59 -0300
+
+libewf (20140608-4) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 16 Jun 2015 23:44:22 -0300
+
+libewf (20140608-3) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream homepage.
+  * debian/control:
+      - Added the 'forensics' word to long description.
+      - Bumped Standards-Version to 3.9.6.
+      - Updated the Vcs-* fields.
+  * debian/copyright:
+      - Updated the 'Format' field in header.
+      - Updated the copyright for packaging.
+  * debian/watch: added a new source.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 16 Mar 2015 09:15:43 -0300
+
+libewf (20140608-2) unstable; urgency=medium
+
+  * Fix FTBFS on hurd-386 (Closes: #754816)
+    Thanks to Svante Signell for the patch.
+
+ -- Pierre Chifflier <pollux@debian.org>  Wed, 27 Aug 2014 09:22:45 +0200
+
+libewf (20140608-1) unstable; urgency=medium
+
+  * Imported Upstream version 20140608
+  * Run dh-autoreconf during build (Closes: #727406)
+  * Update symbols file
+  * Fix pkgconfig file, looking for missing variable
+    ax_libmfdata_pc_libs_private
+  * Bump Standards Version to 3.9.5
+  * Remove deprecated field Dm-Upload-Allowed
+
+ -- Pierre Chifflier <pollux@debian.org>  Thu, 21 Aug 2014 17:51:35 +0200
+
+libewf (20130416-3) unstable; urgency=low
+
+  * Add libbfio-dev to the Depends-Line for libewf-dev (Closes: #721427)
+
+ -- Pierre Chifflier <pollux@debian.org>  Mon, 02 Sep 2013 11:29:28 +0200
+
+libewf (20130416-2) unstable; urgency=low
+
+  * Add pkg-config to build-depends (Closes: #709854)
+  * This is the most recent version (Closes: #691530)
+
+ -- Pierre Chifflier <pollux@debian.org>  Sun, 02 Jun 2013 11:52:16 +0200
+
+libewf (20130416-1) unstable; urgency=low
+
+  [ Cristian Greco ]
+  * debian/control: remove myself from Uploaders.
+
+  [ Christophe Monniez ]
+  * Imported Upstream version 20110504
+  * Updating debian watch file.
+  * Imported Upstream version 20110829
+  * Adding a build dependency on libfuse-dev for the ewfmount tool.
+  * Updating watch file.
+  * Imported Upstream version 20121209
+  * Adapting package name to match the soname.
+  * Renaming symbols file.
+  * Emptying symbols file.
+  * Renaming docs file.
+  * Renaming install file.
+  * Snippet for cleaning dependency libs in .la file.
+  * Updating symbols file merged from previous version.
+  * Updating watch file for project move to google code.
+
+  [ Pierre Chifflier ]
+  * Add myself to Uploaders
+  * Imported Upstream version 20130416
+  * Merge packaging files
+  * Convert to source format 3.0 (quilt)
+  * Add quilt patch to fix libbfio detection
+  * Switch to DH version 9
+    - enable hardening flags
+    - enable multiarch
+
+ -- Pierre Chifflier <pollux@debian.org>  Mon, 20 May 2013 21:33:34 +0200
+
+libewf (20100226-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Cristian Greco <cristian@regolo.cc>  Tue, 02 Mar 2010 17:57:25 +0100
+
+libewf (20100126-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/control: bump up standards-version to 3.8.4 (no changes).
+
+ -- Cristian Greco <cristian@regolo.cc>  Fri, 12 Feb 2010 18:11:17 +0100
+
+libewf (20100119-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Cristian Greco <cristian@regolo.cc>  Sat, 23 Jan 2010 21:34:20 +0100
+
+libewf (20091224-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Cristian Greco <cristian@regolo.cc>  Sat, 09 Jan 2010 11:24:40 +0100
+
+libewf (20091128-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Cristian Greco <cristian@regolo.cc>  Tue, 01 Dec 2009 01:49:17 +0100
+
+libewf (20091114-1) unstable; urgency=low
+
+  * New upstream version.
+    - debian/libewf1.symbols: updated.
+  * debian/control:
+    - new uploader email address.
+    - setting DMUA field, thanks to my sponsor Michael Prokop.
+  * debian/watch: updated, only track stable releases.
+
+ -- Cristian Greco <cristian@regolo.cc>  Thu, 26 Nov 2009 23:23:18 +0100
+
+libewf (20091003-1) unstable; urgency=low
+
+  * New upstream version.
+    - There is no need to repackage the tarball for Debian anymore,
+      thanks Joachim!
+  * debian/patches: drop all patches, merged upstream.
+  * debian/control: drop now useless build-dep on quilt, autotools-dev,
+    autoconf, automake, libtool.
+  * debian/rules: there is no need to run autoreconf at build time now.
+  * debian/README.source: deleted.
+  * debian/copyright: updated.
+  * debian/libewf1.symbols: updated.
+  * debian/watch: updated.
+
+ -- Cristian Greco <cristian.debian@gmail.com>  Sat, 03 Oct 2009 20:28:05 +0200
+
+libewf (20090927+debian-1) unstable; urgency=low
+
+  * New upstream version.
+  * debian/patches: refresh autotools patch against new version.
+  * debian/libewf1.symbols: updated.
+  * debian/copyright: updated.
+
+ -- Cristian Greco <cristian.debian@gmail.com>  Thu, 01 Oct 2009 00:46:25 +0200
+
+libewf (20090606+debian-1) UNRELEASED; urgency=low
+
+  [ Cristian Greco ]
+  * New upstream version.
+  * debian/control:
+    - new package ewf-tools and updated descriptions;
+    - added versioned build-dep on debhelper (>= 7.0.50) and quilt (>= 0.46-7);
+    - libewf-dev depends on zlib1g-dev;
+    - update Vcs-* stuff to new alioth repo;
+    - drop duplicate Section field;
+    - fix upstream homepage;
+    - bump Standards-Version to 3.8.3;
+    - add myself to Uploaders.
+  * debian/{control,rules}: add build-dep on autoconf, automake and
+    libtool in order to run autoreconf at build time.
+  * debian/rules: pass -Wl,--as-needed to LDFLAGS.
+  * debian/patches:
+    - 01-debian-directory.patch: refresh patch against new source files;
+    - 02-fix-acinclude-m4.patch: new patch, fix for autoreconf;
+    - 03-fix-ldflags.patch: new patch, fix to avoid to link against
+      unneded libraries for ewf-tools;
+    - 10-fix-manpages.patch: new patch, fix manpages warnings.
+  * drop debian/libewf1.shlibs and use a specific override in
+    debian/rules instead.
+  * debian/source.lintian-overrides: removed, useless.
+  * debian/libewf1.symbols: add a symbols file for libewf1.
+  * debian/watch: added file.
+  * README.source: added file.
+
+  [ Daniel Baumann ]
+  * Minimize rules file.
+  * Adding misc depends to devel and debug package.
+  * Adding stuff in rules that doesn't get done by dh automatically.
+
+ -- Cristian Greco <cristian.debian@gmail.com>  Wed, 30 Sep 2009 22:58:08 +0200
+
+libewf (20080501+debian-3) unstable; urgency=low
+
+  [ Daniel Baumann ]
+  * Updating section of the debug package.
+
+  [ Christophe Monniez ]
+  * Changing the homepage of upstream in the control file.
+
+  [ Daniel Baumann ]
+  * Updating package to standards version 3.8.2.
+  * Adding lintian overrides.
+  * Also updating upstream url in copyright file.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 09 Jul 2009 12:03:05 +0200
+
+libewf (20080501+debian-2) unstable; urgency=low
+
+  * Using quilt rather than dpatch.
+  * Updatin to standards 3.8.1.
+  * Passing flags directly to configure.
+  * Tidy rules file.
+  * Updating year in copyright file.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 28 May 2009 21:33:44 +0200
+
+libewf (20080501+debian-1) unstable; urgency=low
+
+  * Initial release (Closes: #467428).
+  * Rebuild upstream tarball without debian directory.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 25 Nov 2008 13:05:00 +0100

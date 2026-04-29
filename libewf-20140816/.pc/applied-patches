@@ -1,0 +1,3 @@
+Drop-ax_libfguid_pc_libs_private-from-libewf.pc.patch
+Changes-for-fuse3-support.patch
+Import-FUSE-detection-from-libewf-not-libewf-legacy.patch
