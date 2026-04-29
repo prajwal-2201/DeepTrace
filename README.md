@@ -81,7 +81,7 @@ project/
 ```bash
 # Clone the repository
 git clone https://github.com/prajwal-2201/DeepTrace
-cd forensics-system
+cd DeepTrace
 
 # Install dependencies
 pip install -r requirements.txt
